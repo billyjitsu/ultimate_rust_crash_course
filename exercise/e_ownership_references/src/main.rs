@@ -14,14 +14,30 @@ fn main() {
     // code with `cargo run apple` and `cargo run apples'.  Hint: use `.ends_with("s")` on the
     // String reference
     //
-    //inspect(&arg);
+    inspect(&arg); 
+    
+    fn inspect(s: &String) {
+        if s.ends_with("s") {
+            println!("{} is plural", s);
+        } else {
+            println!("{} is singular", s);
+        }
+    }
+    
 
     // 2. Write a function `change` that takes a *mutable* reference to a String and adds an "s" to
     // the String if it doesn't already end with "s". Then uncomment and run the code below with
     // `cargo run apple`.  Hint: use `.push_str("s")` on the mutable String reference to add an "s".
     //
-    //change(&mut arg);
-    //println!("I have many {}", arg);
+    change(&mut arg);
+
+    fn change(s: &mut String) {
+        if !s.ends_with("s") {
+            s.push_str("s")
+        }
+        println!("I have many {}", s);
+    }
+    
 
     // 3. Write a function `eat` that accepts ownership of (consumes) a String and returns a bool
     // indicating whether or not the String both starts with a "b" AND contains an "a".
